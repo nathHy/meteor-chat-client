@@ -4,26 +4,14 @@
 
 <body>
 	<div class='main'>
-	
-	
-	{{#if currentUser}}
-		{{> header}}
-			<div class='sideBar'>
-				{{> sideBar}}
-			</div>
-			<div class='chatHistory'>
-				{{> chatHistory}}
-			</div>
-		<div class='messageBox'>
-			{{> messageBox}}
-		</div>
-	{{else}}	
-		{{> loginPage}}
-	{{/if}}
-		</div>
-	
-	</body>
+		<!-- {{> header}} -->
+		{{#if currentUser}}
+			{{> sideBar}}
+			{{> chatHistory}}
+			{{> footer}}
+		{{else}}
+			{{> loginPage}}
+		{{/if}}
+	</div>
 
-
-
-
+</body>

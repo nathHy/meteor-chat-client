@@ -1,11 +1,17 @@
 
 <template name='chatHistory'>
-	{{# each messageHistory}}
-		{{> chatMessage}}
-	{{/each}}
+	<div class='chatHistory'>
+		{{# each messageHistory}}
+			{{> chatMessage}}
+		{{/each}}
+	</div>
 </template>
 
 
 <template name='chatMessage'>
-	<div class='message'>Author:{{text}}</div>
+	<div class='message'>
+		<span class='message-timestamp'>{{timestamp}}</span>
+		<span class='message-author'>{{username}}:</span>
+		<span class='message-text'>{{message}}</span>
+	</div>
 </template>

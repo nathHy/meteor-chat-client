@@ -1,0 +1,16 @@
+To look into
+
+Session
+	- Save current channel to DB (for when returning and to send with messgaes)
+
+Change channels
+	- Create channel. Pop up box?
+PM users
+Unread messages
+
+Current User info
+Other user info (online/name/username)
+
+
+
+https://scotch.io/tutorials/building-a-slack-clone-in-meteor-js-part-3-authentication-and-security

@@ -1,13 +1,22 @@
-
-
 <template name='sideBar'>
-	<h3>Channels</h3>
-	{{> channels}}
-	<h3>Users</h3>
-	{{> users}}
+	<div class='sideBar'>
+		<div class='mainPanel'>
+			<div class='listHeader'>
+				<h3 class='listHeading' style="display:inline">Channels</h3>
+				<button type="button"  class="create-button btn btn-default btn-xs" aria-label="Right Align">
+				  <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>
+			</div>
+			{{> channels}}
+			<h3>Users</h3>
+			{{> users}}
+		</div>	
+		{{> user}}
+	</div>
 </template>	
 
 <template name='channels'>
+	
 	<div class='channel-list'>
 		<ul>
 		{{#each channels}}
@@ -18,19 +27,27 @@
 </template>
 
 <template name='channel'>
-	<li>{{name}} <span class='unread'>{{unread}}</span></li>
+	<a href=""><li>{{name}} <span class='unread'>{{unread}}</span></li></a>
 </template>
 
 <template name='users'>
 	<div class='user-list'>
 		<ul>
 		{{#each users}}
-			{{> user}}
+			{{> userItem}}
 		{{/each}}
 		</ul>
 	</div>	
 </template>
 
+<template name='userItem'>
+	<a href=""><li>{{username}} </li></a>
+</template>
+
+
 <template name='user'>
-	<li>{{user}} </li>
+	<div class='user'>
+		<div>Username:{{currentUser}}</div>	
+		<div>Email:</div>	
+	</div>
 </template>

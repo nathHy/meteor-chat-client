@@ -1,5 +1,8 @@
+
 if (Meteor.isClient) {
-  Messages = Meteor.subscribe('messages')
+  Meteor.subscribe('messages')
+  Meteor.subscribe('channels')
+  Meteor.subscribe('userData')
   Template.chatHistory.helpers({
     messageHistory : function() {
       return Messages.find();
@@ -7,24 +10,21 @@ if (Meteor.isClient) {
   });
   Template.users.helpers({
     users : function() {
-      return [
-              {user: "name1"},
-              {user: "name2"},
-              {user: "name3"},
-              {user: "name4"},
-             ]
+      console.log(Meteor.users.find())
+      return Meteor.users.find();
     }
   });
   Template.channels.helpers({
     channels : function() {
-      return [
-              {name: "channel1",unread:"1"},
-              {name: "channel2",unread:"2"},
-              {name: "channel3",unread:"3"},
-              {name: "channel4",unread:"4"},
-             ]
+      return Channels.find();
     }
   });
+
+  Template.user.helpers({
+    currentUser : function() {
+      return Meteor.user().username;
+    }
+  })
 
   Template.messageBox.events({
     'keypress input': function() {
@@ -32,8 +32,9 @@ if (Meteor.isClient) {
             event.stopPropagation();
             var msg = $('.input-message').val();
             // $('.chatHistory').append("<div><span class='message'>Author:<span>" + $('.input-message').val() + '</span></span></div>');
-            Messages.insert({text:msg})
-            Messages.insert({greeting:"hello"});
+            console.log("Appending " + msg)
+            Meteor.call('insertMessage',{username:Meteor.user().username,message:msg});
+            // Messages.insert({greeting:"hello"});
             $('.chatHistory').scrollTop($('.chatHistory')[0].scrollHeight)
 
             $('.chatHistory').val("");
@@ -41,6 +42,15 @@ if (Meteor.isClient) {
         }
     }
   });
+
+  Template.sideBar.events({
+    'click .create-button' : function() {
+      event.stopPropagation();
+      console.log("Create a new channel!")
+      var data = {}
+      Meteor.call("createChannel",data)
+    }
+  })
 
 
    Accounts.ui.config({
