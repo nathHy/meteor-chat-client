@@ -33,7 +33,11 @@ if (Meteor.isClient) {
             var msg = $('.input-message').val();
             // $('.chatHistory').append("<div><span class='message'>Author:<span>" + $('.input-message').val() + '</span></span></div>');
             console.log("Appending " + msg)
-            Meteor.call('insertMessage',{username:Meteor.user().username,message:msg});
+            Meteor.call('insertMessage',{
+                                        username:Meteor.user().username,
+                                        message:msg
+                                        // channel:
+                                      });
             // Messages.insert({greeting:"hello"});
             $('.chatHistory').scrollTop($('.chatHistory')[0].scrollHeight)
 
