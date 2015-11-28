@@ -1,0 +1,29 @@
+<head>
+	<title>chat-client</title>
+</head>
+
+<body>
+	<div class='main'>
+	
+	
+	{{#if currentUser}}
+		{{> header}}
+			<div class='sideBar'>
+				{{> sideBar}}
+			</div>
+			<div class='chatHistory'>
+				{{> chatHistory}}
+			</div>
+		<div class='messageBox'>
+			{{> messageBox}}
+		</div>
+	{{else}}	
+		{{> loginPage}}
+	{{/if}}
+		</div>
+	
+	</body>
+
+
+
+

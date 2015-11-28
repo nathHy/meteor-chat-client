@@ -1,0 +1,36 @@
+
+
+<template name='sideBar'>
+	<h3>Channels</h3>
+	{{> channels}}
+	<h3>Users</h3>
+	{{> users}}
+</template>	
+
+<template name='channels'>
+	<div class='channel-list'>
+		<ul>
+		{{#each channels}}
+			{{> channel}}
+		{{/each}}
+		</ul>
+	</div>	
+</template>
+
+<template name='channel'>
+	<li>{{name}} <span class='unread'>{{unread}}</span></li>
+</template>
+
+<template name='users'>
+	<div class='user-list'>
+		<ul>
+		{{#each users}}
+			{{> user}}
+		{{/each}}
+		</ul>
+	</div>	
+</template>
+
+<template name='user'>
+	<li>{{user}} </li>
+</template>

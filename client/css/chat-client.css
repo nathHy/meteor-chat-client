@@ -1,0 +1,65 @@
+html {
+	height:100%;
+}
+
+.header {
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	height: 53px;
+  	width: 100%;
+}
+
+.main {
+  height: 100%;
+}
+.messageBox {
+	margin-right: 210px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	/*height: 64px;*/
+	width: 100%;
+}
+
+.sideBar {
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width:200px;
+	height:100%;
+	float:left;
+}
+
+.chatHistory {
+  	margin-left: 220px;
+  	position: absolute;
+  	top:10px;
+  	bottom: 65px;
+  	overflow: scroll;
+  	/*overflow-y: auto;*/
+  	overflow-x: hidden;
+  	height:100%;
+  	width:100%;
+  }
+
+.message {
+	position: relative;
+	margin-top: .5rem;
+	padding: .25rem 2rem .1rem 3rem;
+	/*min-height: 36px;*/
+}
+
+.input-message {
+	margin-left: 210px;
+	width:80%;
+}
+.channel-list {
+}
+.unread {
+
+}
+.user-list {
+
+}
+
